@@ -8,7 +8,7 @@
 
             <div  class="card">
               <div class="card-body">
-               {{   var_dump($errors)}}
+               {{-- {{   var_dump($errors)}} --}}
                   <div class="card-title row">
                       <div class="text col-md-4">
                           Create a Opportunity
@@ -31,7 +31,7 @@
                       </div>
                   
                         <div class="form-row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                           <label for="inputType">Type</label>
                           <select id="inputType" name="business_number" class="form-control {{ $errors->has('business_number') ? ' is-invalid' : '' }} form-control-sm">
                             <option value="">Choose...</option>
@@ -39,28 +39,27 @@
                             <option value="1 {{old('business_number')}}">New Business</option>
                           </select>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                                 <label for="inputClient">Client Name</label>
                                 <input type="text" class="form-control {{ $errors->has('client_name') ? ' is-invalid' : '' }} form-control-sm" name="client_name" placeholder="Enter Client name" value="{{old('client_name')}}">
                               </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputCountry">Country</label>
+                            <input type="text" class="form-control {{ $errors->has('country') ? ' is-invalid' : '' }} form-control-sm " name="country" placeholder="Enter country name" value="{{old('country')}}">
+                          </div>
                       </div>
 
                       <div class="form-row ">
-                            <div class="form-group col-md-4">
-                              <label for="inputCountry">Country</label>
-                              <input type="text" class="form-control {{ $errors->has('country') ? ' is-invalid' : '' }} form-control-sm " name="country" placeholder="Enter country name" value="{{old('country')}}">
-                            </div>
+                           
                             <div class="form-group col-md-4">
                                 <label for="inputDate">Expected Close Date</label>
-                                <input type="date" name="date" class="form-control {{ $errors->has('date') ? ' is-invalid' : '' }} form-control-sm " value="{{old('date')}}">  
+                                <input type="date" name="expected_date" class="form-control {{ $errors->has('expected_date') ? ' is-invalid' : '' }} form-control-sm " value="{{old('date')}}">  
                              </div>                       
-                          </div>
-                              <div class="form-row ">
-                          <div class="form-group col-6">
+                          <div class="form-group col-4">
                             <label for="inputRef">Revenue</label>
-                            <input type="text" class="form-control form-control-sm " name="revenue" id="inputRevenue" placeholder="Enter Revenue.">
+                            <input type="number" class="form-control form-control-sm " name="revenue" id="inputRevenue" placeholder="Enter Revenue.">
                           </div>
-                          <div class="form-group col-md-6">
+                          <div class="form-group col-md-4">
                               <label for="inputType">Currency</label>
                                 <select id="inputType" name="currency" class="form-control form-control-sm ">
                                   <option value="">Choose..</option>
@@ -166,7 +165,7 @@ function updateAssignees(event) {
   window.APP_USERS.forEach(function(user) {
     if (user.team === team.value) {
       //add an option to the assigns
-      options.appendChild(createOption(user.name, user.name));
+      options.appendChild(createOption(user.name, user.id));
     }
   });
   assignees.appendChild(options);

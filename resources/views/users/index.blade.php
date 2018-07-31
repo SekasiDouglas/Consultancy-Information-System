@@ -15,7 +15,7 @@
 				<th>Team</th>
 				<th>Title</th>
 				<th>Role</th>
-				<th>Delete</th>
+				<th>Trash</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -56,7 +56,13 @@
 							@endif
 						</td>
 						<td>
-							Delete
+							<form action="{{ route('users.destroy', $user->id)}}" method="post">
+									@csrf
+								<input name="_method" type="hidden" value="DELETE">
+								<div class="btn-group">
+										<button type="submit" class="btn btn-outline-danger btn-xs" onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i></button>
+										</div>
+							</form>
 						</td>
 
 					</tr>

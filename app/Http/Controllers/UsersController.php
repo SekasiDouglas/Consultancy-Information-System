@@ -118,8 +118,11 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id){
+        $user = User::find($id);
+        $user->delete();
+        Session::flash('sucess','You have successively trashed a user');
+        return back();
     }
 
     public function admin($id)
@@ -141,4 +144,14 @@ class UsersController extends Controller
 
         return redirect()->back();
     }
+    public function trashed(){
+        $users = User::onlyTrashed()->get();
+        return view('users.lists', compact('users'));
+    }
+    public function removeUser($id){
+        $user = User::withTrashed()->where('id', $id);
+        $user->forceDelete();
+        Session::flash('success', 'You have Completely deleted an opportunity');
+        return view('users.lists');
+     }
 }

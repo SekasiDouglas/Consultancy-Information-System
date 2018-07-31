@@ -6,6 +6,7 @@
   @if(!Auth::guest())
   @include("layouts.navbar")
   <div class="container-fluid page-body-wrapper">
+    @include('partials.todo')
     @include('layouts.sidebar')
     @endif
     <!-- partial -->
@@ -17,8 +18,9 @@
  </div>
 </div>
 @include('layouts.footer')
-@include("partials.flash")
+
 @yield('script')
 @include('partials.scripts')
+@include("partials.flash")
 </body>
 </html>

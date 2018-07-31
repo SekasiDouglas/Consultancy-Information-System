@@ -1,8 +1,8 @@
 // import jquery from "jquery";
-import Popper from "popper.js";
-import toastr from "toastr";
-import axios from "axios";
-// import 'datatables.net';
+//import Popper from "popper.js";
+// import toastr from "toastr";
+// import axios from "axios";
+//  import 'datatables.net';
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
@@ -10,7 +10,7 @@ import axios from "axios";
  */
  	//  require('jquery');
 
-    require('bootstrap');
+    // require('bootstrap');
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -18,9 +18,9 @@ import axios from "axios";
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
- window.axios = require('axios');
+//  window.axios = require('axios');
 
-	 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+// 	 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /**
  * Next we will register the CSRF Token as a common header with Axios so that
@@ -28,13 +28,13 @@ import axios from "axios";
  * a simple convenience so we don't have to attach every token manually.
  */
 
-let token = document.head.querySelector('meta[name="csrf-token"]');
+// let token = document.head.querySelector('meta[name="csrf-token"]');
 
-if (token) {
-    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
-} else {
-    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
-}
+// if (token) {
+//     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+// } else {
+//     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+// }
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

@@ -21,4 +21,14 @@ class Project extends Model
             dd($project);
         });
     }
+    public function associate(){
+
+        return $this->hasMany(Associate::class);
+        
+    }
+    public function tasks(){
+
+        return $this->hasMany(Task::class);
+        
+    }
 }
